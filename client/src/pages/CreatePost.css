@@ -1,0 +1,23 @@
+.create-post-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Página CreatePost como container centralizado para visual de app desktop */
+.create-post-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.create-post-container h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.create-post-container p {
+  color: #666;
+  font-size: 1.1rem;
+}

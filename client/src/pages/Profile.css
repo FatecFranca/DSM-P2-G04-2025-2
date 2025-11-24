@@ -1,0 +1,1027 @@
+.profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+/* Header do Perfil */
+.profile-header {
+  background: white;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.profile-cover {
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 20px 20px;
+}
+
+.profile-avatar-container {
+  position: relative;
+  margin-bottom: -60px;
+}
+
+.profile-avatar {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-avatar.default-avatar {
+  background: #e4e6eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #65676b;
+}
+
+.profile-avatar.default-avatar svg {
+  width: 80px;
+  height: 80px;
+}
+
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.edit-avatar-btn:hover {
+  background: #e55a2b;
+  transform: scale(1.05);
+}
+
+.profile-info {
+  padding: 80px 20px 20px;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1c1e21;
+  margin: 0 0 8px 0;
+}
+
+.profile-username {
+  font-size: 18px;
+  color: #65676b;
+  margin: 0 0 20px 0;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tornar Seguidores/Seguindo clicáveis visualmente */
+.stat-item.clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.stat-item.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #65676b;
+  margin-top: 4px;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-profile-btn, .share-profile-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-profile-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.edit-profile-btn:hover {
+  background: #e55a2b;
+}
+
+.share-profile-btn {
+  background: #e4e6eb;
+  color: #050505;
+}
+
+.share-profile-btn:hover {
+  background: #d8dadf;
+}
+
+/* Conteúdo Principal */
+.profile-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  margin: 0 20px 20px;
+}
+
+/* Sidebar */
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #65676b;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1c1e21;
+}
+
+/* Feed Principal */
+.profile-main {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Fotos Padrão */
+.profile-avatar.default-avatar img,
+.post-user-avatar.default-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.profile-cover-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Upload de Imagens */
+.cover-upload-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.avatar-upload-overlay {
+  position: relative;
+  z-index: 10;
+}
+
+/* Bio do Usuário */
+.profile-bio {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1c1e21;
+  max-width: 600px;
+}
+
+/* Botões de Ação */
+.create-post-btn {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.create-post-btn:hover {
+  background: #388e3c;
+  transform: translateY(-1px);
+}
+
+.create-post-header-btn {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-post-header-btn:hover {
+  background: #388e3c;
+}
+
+/* Header do Feed */
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid #e4e6eb;
+  max-width: var(--post-card-max, 580px);
+  margin: 0 auto 16px auto;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+}
+
+.feed-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+/* Cards de Post */
+.profile-page .post-card {
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background: white;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  max-width: var(--post-card-max, 580px);
+}
+
+/* Controla a proporção (largura/altura) das fotos no feed do perfil */
+.profile-page {
+  --post-aspect: 1 / 1;
+}
+
+.profile-page .post-card:first-of-type { }
+
+.profile-page .post-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+  padding: 16px;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.post-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  min-width: 40px;
+  min-height: 40px;
+  flex-shrink: 0;
+}
+
+.post-user-avatar.default-avatar {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.post-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-user-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.post-restaurant {
+  font-size: 14px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #65676b;
+}
+
+.post-content {
+  padding: 16px;
+}
+
+.post-text {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1c1e21;
+}
+
+.post-photos {
+  margin: 15px 0;
+  width: 100%;
+  aspect-ratio: var(--post-aspect, 1 / 1);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+.post-photos-gallery {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--post-aspect, 1 / 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-navigation {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.photo-counter {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 40px;
+  text-align: center;
+}
+
+.post-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 20px;
+  color: #e4e6eb;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #ffd700;
+}
+
+.rating-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.post-footer {
+  padding: 16px;
+  border-top: 1px solid #e4e6eb;
+  background: #f8f9fa;
+}
+
+.post-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #65676b;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.action-button:hover {
+  background: #e4e6eb;
+  color: var(--primary-color);
+}
+
+.action-button .liked {
+  color: #ff6b6b;
+}
+
+.comments-count {
+  font-size: 14px;
+  color: #65676b;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.comments-count:hover {
+  color: var(--primary-color);
+}
+
+/* Estados de Loading e Vazio */
+.loading-message, .no-posts {
+  text-align: center;
+  padding: 60px 20px;
+  color: #65676b;
+}
+
+.no-posts-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.no-posts h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #1c1e21;
+}
+
+.no-posts p {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+}
+
+/* Botão de Primeira Avaliação */
+.create-first-post-btn {
+  padding: 12px 24px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.create-first-post-btn:hover {
+  background: #388e3c;
+}
+
+.loading-posts {
+  text-align: center;
+  padding: 40px 20px;
+  color: #65676b;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e4e6eb;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.load-more-btn {
+  width: 100%;
+  padding: 12px;
+  background: #e4e6eb;
+  color: #050505;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.load-more-btn:hover {
+  background: #d8dadf;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-sidebar {
+    order: 2;
+  }
+  
+  .profile-main {
+    order: 1;
+  }
+  
+  .profile-page .post-card { }
+  
+  .feed-header { }
+  
+  .profile-page .post-card:first-of-type {
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 0;
+  }
+  
+  .profile-header, .profile-content {
+    margin: 10px;
+  }
+  
+  .profile-cover {
+    height: 150px;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-info {
+    padding: 60px 20px 20px;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+  }
+  
+  .profile-stats {
+    gap: 20px;
+  }
+  
+  .profile-actions {
+    flex-direction: column;
+  }
+  
+  .post-photos {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-page .post-card { }
+  
+  .profile-page .post-card:first-of-type {
+    border-radius: 0 0 8px 8px;
+    margin-top: 0;
+  }
+  
+  .feed-header {
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  /* Responsividade para Upload */
+  .cover-upload-overlay .upload-area.cover {
+    height: 120px;
+  }
+  
+  .avatar-upload-overlay .upload-area.avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .create-post-header-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-stats {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .stat-item {
+    flex-direction: row;
+    gap: 8px;
+  }
+  
+  .profile-page .post-card { }
+  
+  .profile-page .post-card:first-of-type {
+    border-radius: 0 0 8px 8px;
+    margin-top: 0;
+  }
+  
+  .feed-header {
+    max-width: 95%;
+    margin: 0 5px;
+    padding: 15px;
+  }
+  
+  .profile-header, .profile-content {
+    margin: 5px;
+  }
+}
+
+/* Estilos para Restaurantes Pendentes */
+.pending-restaurants-list {
+  margin-top: 10px;
+}
+
+.pending-restaurant-item {
+  padding: 12px;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: white;
+}
+
+.pending-restaurant-item .restaurant-name {
+  font-weight: 600;
+  color: #1c1e21;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.pending-restaurant-item .restaurant-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.pending-restaurant-item .status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.pending-restaurant-item .status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.pending-restaurant-item .status.approved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.pending-restaurant-item .status.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.view-all-pending-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.view-all-pending-btn:hover {
+  background: #e55a2b;
+}
+
+/* Modal de Restaurantes Pendentes */
+.pending-restaurants-modal {
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.pending-restaurants-modal .modal-header {
+  border-bottom: 1px solid #e4e6eb;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.pending-restaurants-modal .modal-header h2 {
+  margin: 0;
+  color: #1c1e21;
+}
+
+.pending-restaurants-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.pending-restaurant-card {
+  border: 1px solid #e4e6eb;
+  border-radius: 12px;
+  padding: 20px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.pending-restaurant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.pending-restaurant-card.pending {
+  border-left: 4px solid #ffc107;
+}
+
+.pending-restaurant-card.approved {
+  border-left: 4px solid #28a745;
+}
+
+.pending-restaurant-card.rejected {
+  border-left: 4px solid #dc3545;
+}
+
+.pending-restaurant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.pending-restaurant-header .restaurant-info {
+  flex: 1;
+}
+
+.pending-restaurant-header .restaurant-name {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1c1e21;
+}
+
+.pending-restaurant-header .restaurant-address {
+  margin: 0;
+  color: #65676b;
+  font-size: 14px;
+}
+
+.pending-restaurant-header .status-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: right;
+}
+
+.pending-restaurant-header .status-icon {
+  font-size: 16px;
+}
+
+.pending-restaurant-header .status-icon.pending {
+  color: #ffc107;
+}
+
+.pending-restaurant-header .status-icon.approved {
+  color: #28a745;
+}
+
+.pending-restaurant-header .status-icon.rejected {
+  color: #dc3545;
+}
+
+.pending-restaurant-header .status-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pending-restaurant-header .status-text.pending {
+  color: #856404;
+}
+
+.pending-restaurant-header .status-text.approved {
+  color: #155724;
+}
+
+.pending-restaurant-header .status-text.rejected {
+  color: #721c24;
+}
+
+.restaurant-details {
+  margin-bottom: 15px;
+}
+
+.restaurant-description {
+  margin: 0 0 12px 0;
+  color: #1c1e21;
+  line-height: 1.5;
+}
+
+.restaurant-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.meta-item {
+  background: #f8f9fa;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: #65676b;
+}
+
+.admin-notes {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.admin-notes strong {
+  color: #856404;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.admin-notes p {
+  margin: 0;
+  color: #856404;
+  font-size: 14px;
+}
+
+.post-preview {
+  border-top: 1px solid #e4e6eb;
+  padding-top: 15px;
+}
+
+.post-preview h5 {
+  margin: 0 0 10px 0;
+  color: #1c1e21;
+  font-size: 14px;
+}
+
+.post-preview .post-content {
+  margin: 0 0 10px 0;
+  color: #65676b;
+  font-size: 14px;
+}
+
+.post-preview .post-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-preview .rating-text {
+  font-size: 12px;
+  color: #65676b;
+  font-weight: 500;
+}
+
+.no-pending-restaurants {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-pending-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.no-pending-restaurants h3 {
+  margin: 0 0 8px 0;
+  color: #1c1e21;
+}
+
+.no-pending-restaurants p {
+  margin: 0;
+  color: #65676b;
+  line-height: 1.5;
+}

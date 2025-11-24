@@ -1,0 +1,427 @@
+/* Galeria de Fotos dos Restaurantes */
+.restaurant-photo-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.restaurant-photo-gallery.open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.restaurant-photo-gallery.fullscreen {
+  background: #000;
+}
+
+/* Overlay de fundo */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Container principal */
+.gallery-container {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header da galeria */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.gallery-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.photo-counter {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.gallery-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.control-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.control-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.close-button:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+/* Container da foto principal */
+.main-photo-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+/* Foto principal */
+.main-photo {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-photo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Caption da foto */
+.photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.photo-caption p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Botões de navegação */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+.nav-button:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button-left {
+  left: 20px;
+}
+
+.nav-button-right {
+  right: 20px;
+}
+
+/* Miniaturas das fotos */
+.photo-thumbnails {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.thumbnail {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 3px solid transparent;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+  border-color: var(--primary-color);
+}
+
+.thumbnail.active {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-photo-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Indicadores de navegação */
+.photo-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px;
+  background: #f8f9fa;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.indicator:hover {
+  background: #bbb;
+}
+
+.indicator.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* Informações da foto */
+.photo-info {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.photo-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.main-photo-label {
+  background: var(--primary-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Instruções de navegação */
+.navigation-hints {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.navigation-hints p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .gallery-container {
+    width: 95%;
+    height: 95%;
+  }
+  
+  .gallery-header {
+    padding: 15px;
+  }
+  
+  .gallery-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+  
+  .nav-button-left {
+    left: 10px;
+  }
+  
+  .nav-button-right {
+    right: 10px;
+  }
+  
+  .photo-thumbnails {
+    padding: 15px;
+  }
+  
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .navigation-hints {
+    bottom: 10px;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  
+  .gallery-header {
+    padding: 10px;
+  }
+  
+  .gallery-info h3 {
+    font-size: 1rem;
+  }
+  
+  .photo-caption {
+    padding: 10px;
+  }
+  
+  .photo-caption p {
+    font-size: 0.9rem;
+  }
+  
+  .photo-thumbnails {
+    padding: 10px;
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.restaurant-photo-gallery.open .gallery-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Transições suaves */
+.main-photo img {
+  transition: transform 0.3s ease;
+}
+
+.main-photo:hover img {
+  transform: scale(1.02);
+}
+
+/* Scrollbar personalizada para miniaturas */
+.photo-thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+.photo-thumbnails::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.photo-thumbnails::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.photo-thumbnails::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+

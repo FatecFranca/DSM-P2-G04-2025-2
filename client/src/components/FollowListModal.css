@@ -1,0 +1,121 @@
+.follow-list-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.follow-list-modal {
+  background: #fff;
+  width: 92vw;
+  max-width: 560px;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.follow-list-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.follow-list-title {
+  margin: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.follow-list-search {
+  padding: 10px 16px 0 16px;
+}
+
+.follow-list-search-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+}
+
+.follow-list-search-input:focus {
+  border-color: var(--primary-color, #ff6b35);
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.15);
+}
+
+.follow-list-loading,
+.follow-list-error,
+.follow-list-empty {
+  padding: 24px;
+  text-align: center;
+}
+
+.follow-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0 0;
+  overflow: auto;
+}
+
+.follow-list-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.follow-list-user {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.follow-list-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--primary-color, #ff6b35);
+}
+
+.follow-list-avatar.placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.follow-list-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.follow-list-name {
+  font-weight: 600;
+}
+
+.follow-list-username {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.follow-list-bio {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+

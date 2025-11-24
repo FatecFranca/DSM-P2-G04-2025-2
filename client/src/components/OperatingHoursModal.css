@@ -1,0 +1,143 @@
+/* OperatingHoursModal.css */
+
+.operating-hours-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.operating-hours-modal-content {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.operating-hours-modal-header {
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.operating-hours-modal-header h2 {
+  color: #1e293b;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.clock-icon {
+  color: var(--primary-color, #e53e3e);
+  font-size: 1.5rem;
+}
+
+.operating-hours-modal-body {
+  padding: 1.5rem;
+}
+
+.day-hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.day-hours-row:last-child {
+  border-bottom: none;
+}
+
+.day-name {
+  font-weight: 600;
+  color: #334155;
+}
+
+.day-hours {
+  color: #475569;
+}
+
+.closed-status {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.open-hours {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.operating-hours-modal-footer {
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.operating-hours-modal-footer p {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .operating-hours-modal-content {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  
+  .operating-hours-modal-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .day-hours-row {
+    padding: 0.5rem 0;
+  }
+}

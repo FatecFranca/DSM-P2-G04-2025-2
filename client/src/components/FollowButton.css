@@ -1,0 +1,105 @@
+.follow-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.follow-button.not-following {
+  background: var(--primary-color);
+  color: white;
+}
+
+.follow-button.not-following:hover:not(:disabled) {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.follow-button.following {
+  background: #e4e6eb;
+  color: #050505;
+}
+
+.follow-button.following:hover:not(:disabled) {
+  background: #d8dadf;
+}
+
+.follow-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.follow-button .icon {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loading-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Variações de tamanho */
+.follow-button.large {
+  padding: 12px 24px;
+  font-size: 16px;
+  min-width: 120px;
+}
+
+.follow-button.small {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-width: 80px;
+}
+
+/* Variações de cor */
+.follow-button.primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.follow-button.primary:hover:not(:disabled) {
+  background: #e55a2b;
+}
+
+.follow-button.secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.follow-button.secondary:hover:not(:disabled) {
+  background: #e0851a;
+}
+
+.follow-button.success {
+  background: #4caf50;
+  color: white;
+}
+
+.follow-button.success:hover:not(:disabled) {
+  background: #388e3c;
+}

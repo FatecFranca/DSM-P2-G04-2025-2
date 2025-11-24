@@ -1,0 +1,367 @@
+/* Componente de Fotos dos Restaurantes */
+.restaurant-photos {
+  margin: 20px 0;
+}
+
+/* Seção da foto principal */
+.main-photo-section {
+  margin-bottom: 20px;
+}
+
+.main-photo-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.main-photo-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-photo-container:hover .main-photo {
+  transform: scale(1.05);
+}
+
+/* Overlay da foto principal */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.main-photo-container:hover .photo-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+}
+
+.overlay-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.overlay-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Overlay sutil para outras fotos */
+.photo-overlay.subtle {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+}
+
+.other-photo-container:hover .photo-overlay.subtle {
+  opacity: 1;
+}
+
+.overlay-icon.small {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Badge de foto principal */
+.main-photo-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Contador de fotos */
+.photo-count-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Seção de outras fotos */
+.other-photos-section {
+  margin-bottom: 20px;
+}
+
+.other-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.other-photo-container {
+  position: relative;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.other-photo-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.other-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.other-photo-container:hover .other-photo {
+  transform: scale(1.1);
+}
+
+/* Botão para mais fotos */
+.more-photos-button {
+  height: 150px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.more-photos-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.more-photos-content {
+  text-align: center;
+  color: white;
+}
+
+.more-photos-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.more-photos-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Botão da galeria */
+.gallery-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gallery-button {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.gallery-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.gallery-button:active {
+  transform: translateY(0);
+}
+
+.gallery-button-icon {
+  font-size: 1.2rem;
+}
+
+.photo-count {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* Estado sem fotos */
+.restaurant-photos.no-photos {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px dashed #dee2e6;
+}
+
+.no-photos-content {
+  color: #6c757d;
+}
+
+.no-photos-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-photos-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #495057;
+}
+
+.no-photos-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-photo-container {
+    height: 300px;
+  }
+  
+  .other-photos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  
+  .other-photo-container {
+    height: 120px;
+  }
+  
+  .more-photos-button {
+    height: 120px;
+  }
+  
+  .gallery-button {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-photo-container {
+    height: 250px;
+  }
+  
+  .other-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .other-photo-container {
+    height: 100px;
+  }
+  
+  .more-photos-button {
+    height: 100px;
+  }
+  
+  .gallery-button {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 20px;
+  }
+  
+  .no-photos {
+    padding: 40px 15px;
+  }
+  
+  .no-photos-icon {
+    font-size: 2.5rem;
+  }
+  
+  .no-photos-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.restaurant-photos {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estados de loading */
+.main-photo-container.loading,
+.other-photo-container.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Melhorias de acessibilidade */
+.main-photo-container:focus,
+.other-photo-container:focus,
+.more-photos-button:focus,
+.gallery-button:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Transições suaves para todos os elementos interativos */
+.main-photo-container,
+.other-photo-container,
+.more-photos-button,
+.gallery-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
